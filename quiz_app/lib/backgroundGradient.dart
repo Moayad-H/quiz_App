@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/startScreen.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer(this.color1, this.color2, {super.key});
@@ -16,7 +15,6 @@ class GradientContainer extends StatelessWidget {
           color2,
         ], begin: Alignment.topLeft, end: Alignment.bottomRight),
       ),
-      child: Center(child: StartPage()),
     );
   }
 }

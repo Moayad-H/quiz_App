@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/quiz.dart';
 
 class StartPage extends StatelessWidget {
-  StartPage({super.key});
-
+  const StartPage(this.startQuiz, {super.key});
+  final void Function() startQuiz;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -11,25 +12,25 @@ class StartPage extends StatelessWidget {
         Image.asset(
           'assets/images/quiz-logo.png',
           width: 350,
-          color: Color.fromARGB(150, 255, 205, 210),
+          color: const Color.fromARGB(150, 255, 205, 210),
         ),
         const SizedBox(
           width: 10,
-          height: 40,
+          height: 50,
         ),
         const Text(
           'Learn Flutter the right way',
-          style: TextStyle(fontSize: 22, color: Colors.white),
+          style: TextStyle(fontSize: 28, color: Colors.white),
         ),
         const SizedBox(
           width: 10,
-          height: 40,
+          height: 50,
         ),
         OutlinedButton.icon(
             style: OutlinedButton.styleFrom(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(10.0),
             ),
-            onPressed: () {},
+            onPressed: startQuiz,
             icon: const Icon(
               Icons.subdirectory_arrow_right_sharp,
               color: Colors.white,
