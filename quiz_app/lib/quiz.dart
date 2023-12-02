@@ -23,12 +23,19 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void resetQuiz() {
+    setState(() {
+      activeScreen = 'questions-screen';
+      selectedAnswers = [];
+    });
+  }
+
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
       setState(() {
         activeScreen = 'results-screen';
-        selectedAnswers = [];
+        //selectedAnswers = [];
       });
     }
   }
@@ -56,7 +63,10 @@ class _QuizState extends State<Quiz> {
                 ? StartPage(switchScreen)
                 : activeScreen != 'results-screen'
                     ? QuestionScreen(onSelectAnswer: chooseAnswer)
-                    : const ResultsScreen(),
+                    : ResultsScreen(
+                        chosenAnswers: selectedAnswers,
+                        restart: resetQuiz,
+                      ),
           ),
         ),
       ),
